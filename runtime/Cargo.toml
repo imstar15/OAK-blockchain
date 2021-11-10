@@ -20,87 +20,87 @@ hex-literal = { version = "0.3.1", optional = true }
 log = { version = "0.4.14", default-features = false }
 
 # primitives
-sp-authority-discovery = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/paritytech/substrate.git', branch= 'polkadot-v0.9.10' }
-sp-consensus-babe = { version = "0.10.0-dev", default-features = false, git = 'https://github.com/paritytech/substrate.git', branch= 'polkadot-v0.9.10' }
-sp-block-builder = { git = 'https://github.com/paritytech/substrate.git', branch= 'polkadot-v0.9.10', default-features = false, version = "4.0.0-dev"}
-sp-inherents = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/paritytech/substrate.git', branch= 'polkadot-v0.9.10' }
-node-primitives = { version = "2.0.0", default-features = false, git = 'https://github.com/paritytech/substrate.git', branch= 'polkadot-v0.9.10' }
-sp-offchain = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/paritytech/substrate.git', branch= 'polkadot-v0.9.10' }
-sp-core = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/paritytech/substrate.git', branch= 'polkadot-v0.9.10' }
-sp-std = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/paritytech/substrate.git', branch= 'polkadot-v0.9.10' }
-sp-api = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/paritytech/substrate.git', branch= 'polkadot-v0.9.10' }
-sp-runtime = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/paritytech/substrate.git', branch= 'polkadot-v0.9.10' }
-sp-staking = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/paritytech/substrate.git', branch= 'polkadot-v0.9.10' }
-sp-keyring = { version = "4.0.0-dev", optional = true, git = 'https://github.com/paritytech/substrate.git', branch= 'polkadot-v0.9.10' }
-sp-session = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/paritytech/substrate.git', branch= 'polkadot-v0.9.10' }
-sp-transaction-pool = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/paritytech/substrate.git', branch= 'polkadot-v0.9.10' }
-sp-version = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/paritytech/substrate.git', branch= 'polkadot-v0.9.10' }
-sp-npos-elections = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/paritytech/substrate.git', branch= 'polkadot-v0.9.10' }
+sp-authority-discovery = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/imstar15/substrate.git', branch = 'debug-910' }
+sp-consensus-babe = { version = "0.10.0-dev", default-features = false, git = 'https://github.com/imstar15/substrate.git', branch = 'debug-910' }
+sp-block-builder = { git = 'https://github.com/imstar15/substrate.git', branch = 'debug-910', default-features = false, version = "4.0.0-dev"}
+sp-inherents = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/imstar15/substrate.git', branch = 'debug-910' }
+node-primitives = { version = "2.0.0", default-features = false, git = 'https://github.com/imstar15/substrate.git', branch = 'debug-910' }
+sp-offchain = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/imstar15/substrate.git', branch = 'debug-910' }
+sp-core = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/imstar15/substrate.git', branch = 'debug-910' }
+sp-std = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/imstar15/substrate.git', branch = 'debug-910' }
+sp-api = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/imstar15/substrate.git', branch = 'debug-910' }
+sp-runtime = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/imstar15/substrate.git', branch = 'debug-910' }
+sp-staking = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/imstar15/substrate.git', branch = 'debug-910' }
+sp-keyring = { version = "4.0.0-dev", optional = true, git = 'https://github.com/imstar15/substrate.git', branch = 'debug-910' }
+sp-session = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/imstar15/substrate.git', branch = 'debug-910' }
+sp-transaction-pool = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/imstar15/substrate.git', branch = 'debug-910' }
+sp-version = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/imstar15/substrate.git', branch = 'debug-910' }
+sp-npos-elections = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/imstar15/substrate.git', branch = 'debug-910' }
 
 # parachain dependencies
-# sp-consensus-aura =  { version = "0.10.0-dev", default-features = false, git = 'https://github.com/paritytech/substrate', branch= 'polkadot-v0.9.10' }
+# sp-consensus-aura =  { version = "0.10.0-dev", default-features = false, git = 'https://github.com/imstar15/substrate.git', branch= 'debug-910' }
 
 # frame dependencies
-frame-executive = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/paritytech/substrate.git', branch= 'polkadot-v0.9.10' }
-frame-benchmarking = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/paritytech/substrate.git', branch= 'polkadot-v0.9.10', optional = true }
-frame-support = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/paritytech/substrate.git', branch= 'polkadot-v0.9.10' }
-frame-system = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/paritytech/substrate.git', branch= 'polkadot-v0.9.10' }
-frame-system-benchmarking = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/paritytech/substrate.git', branch= 'polkadot-v0.9.10', optional = true }
-frame-election-provider-support = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/paritytech/substrate.git', branch= 'polkadot-v0.9.10' }
-frame-system-rpc-runtime-api = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/paritytech/substrate.git', branch= 'polkadot-v0.9.10' }
-frame-try-runtime = { version = "0.10.0-dev", default-features = false, git = 'https://github.com/paritytech/substrate.git', branch= 'polkadot-v0.9.10', optional = true }
-pallet-assets = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/paritytech/substrate.git', branch= 'polkadot-v0.9.10' }
-pallet-authority-discovery = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/paritytech/substrate.git', branch= 'polkadot-v0.9.10' }
-pallet-authorship = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/paritytech/substrate.git', branch= 'polkadot-v0.9.10' }
-pallet-babe = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/paritytech/substrate.git', branch= 'polkadot-v0.9.10' }
-pallet-balances = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/paritytech/substrate.git', branch= 'polkadot-v0.9.10' }
-pallet-bounties = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/paritytech/substrate.git', branch= 'polkadot-v0.9.10' }
-pallet-collective = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/paritytech/substrate.git', branch= 'polkadot-v0.9.10' }
-pallet-contracts = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/paritytech/substrate.git', branch= 'polkadot-v0.9.10' }
-pallet-contracts-primitives = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/paritytech/substrate.git', branch= 'polkadot-v0.9.10' }
-pallet-contracts-rpc-runtime-api = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/paritytech/substrate.git', branch= 'polkadot-v0.9.10' }
-pallet-democracy = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/paritytech/substrate.git', branch= 'polkadot-v0.9.10' }
-pallet-election-provider-multi-phase = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/paritytech/substrate.git', branch= 'polkadot-v0.9.10' }
-pallet-elections-phragmen = { version = "5.0.0-dev", default-features = false, git = 'https://github.com/paritytech/substrate.git', branch= 'polkadot-v0.9.10' }
-pallet-gilt = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/paritytech/substrate.git', branch= 'polkadot-v0.9.10' }
-pallet-grandpa = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/paritytech/substrate.git', branch= 'polkadot-v0.9.10' }
-pallet-im-online = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/paritytech/substrate.git', branch= 'polkadot-v0.9.10' }
-pallet-indices = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/paritytech/substrate.git', branch= 'polkadot-v0.9.10' }
-pallet-identity = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/paritytech/substrate.git', branch= 'polkadot-v0.9.10' }
-pallet-lottery = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/paritytech/substrate.git', branch= 'polkadot-v0.9.10' }
-pallet-membership = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/paritytech/substrate.git', branch= 'polkadot-v0.9.10' }
-pallet-mmr = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/paritytech/substrate.git', branch= 'polkadot-v0.9.10' }
-pallet-multisig = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/paritytech/substrate.git', branch= 'polkadot-v0.9.10' }
-pallet-offences = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/paritytech/substrate.git', branch= 'polkadot-v0.9.10' }
-pallet-offences-benchmarking = { version = "4.0.0-dev", git = 'https://github.com/paritytech/substrate.git', branch= 'polkadot-v0.9.10', default-features = false, optional = true }
-pallet-proxy = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/paritytech/substrate.git', branch= 'polkadot-v0.9.10' }
-pallet-randomness-collective-flip = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/paritytech/substrate.git', branch= 'polkadot-v0.9.10' }
-pallet-recovery = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/paritytech/substrate.git', branch= 'polkadot-v0.9.10' }
-pallet-session = { version = "4.0.0-dev", features = ["historical"], git = 'https://github.com/paritytech/substrate.git', branch= 'polkadot-v0.9.10', default-features = false }
-pallet-session-benchmarking = { version = "4.0.0-dev", git = 'https://github.com/paritytech/substrate.git', branch= 'polkadot-v0.9.10', default-features = false, optional = true }
-pallet-staking = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/paritytech/substrate.git', branch= 'polkadot-v0.9.10' }
-pallet-staking-reward-curve = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/paritytech/substrate.git', branch= 'polkadot-v0.9.10' }
-pallet-scheduler = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/paritytech/substrate.git', branch= 'polkadot-v0.9.10' }
-pallet-society = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/paritytech/substrate.git', branch= 'polkadot-v0.9.10' }
-pallet-sudo = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/paritytech/substrate.git', branch= 'polkadot-v0.9.10' }
-pallet-timestamp = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/paritytech/substrate.git', branch= 'polkadot-v0.9.10' }
-pallet-tips = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/paritytech/substrate.git', branch= 'polkadot-v0.9.10' }
-pallet-treasury = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/paritytech/substrate.git', branch= 'polkadot-v0.9.10' }
-pallet-utility = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/paritytech/substrate.git', branch= 'polkadot-v0.9.10' }
-pallet-transaction-payment = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/paritytech/substrate.git', branch= 'polkadot-v0.9.10' }
-pallet-transaction-payment-rpc-runtime-api = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/paritytech/substrate.git', branch= 'polkadot-v0.9.10' }
-pallet-transaction-storage = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/paritytech/substrate.git', branch= 'polkadot-v0.9.10' }
-pallet-uniques = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/paritytech/substrate.git', branch= 'polkadot-v0.9.10' }
-pallet-vesting = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/paritytech/substrate.git', branch= 'polkadot-v0.9.10' }
+frame-executive = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/imstar15/substrate.git', branch = 'debug-910' }
+frame-benchmarking = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/imstar15/substrate.git', branch = 'debug-910', optional = true }
+frame-support = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/imstar15/substrate.git', branch = 'debug-910' }
+frame-system = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/imstar15/substrate.git', branch = 'debug-910' }
+frame-system-benchmarking = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/imstar15/substrate.git', branch = 'debug-910', optional = true }
+frame-election-provider-support = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/imstar15/substrate.git', branch = 'debug-910' }
+frame-system-rpc-runtime-api = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/imstar15/substrate.git', branch = 'debug-910' }
+frame-try-runtime = { version = "0.10.0-dev", default-features = false, git = 'https://github.com/imstar15/substrate.git', branch = 'debug-910', optional = true }
+pallet-assets = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/imstar15/substrate.git', branch = 'debug-910' }
+pallet-authority-discovery = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/imstar15/substrate.git', branch = 'debug-910' }
+pallet-authorship = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/imstar15/substrate.git', branch = 'debug-910' }
+pallet-babe = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/imstar15/substrate.git', branch = 'debug-910' }
+pallet-balances = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/imstar15/substrate.git', branch = 'debug-910' }
+pallet-bounties = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/imstar15/substrate.git', branch = 'debug-910' }
+pallet-collective = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/imstar15/substrate.git', branch = 'debug-910' }
+pallet-contracts = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/imstar15/substrate.git', branch = 'debug-910' }
+pallet-contracts-primitives = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/imstar15/substrate.git', branch = 'debug-910' }
+pallet-contracts-rpc-runtime-api = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/imstar15/substrate.git', branch = 'debug-910' }
+pallet-democracy = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/imstar15/substrate.git', branch = 'debug-910' }
+pallet-election-provider-multi-phase = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/imstar15/substrate.git', branch = 'debug-910' }
+pallet-elections-phragmen = { version = "5.0.0-dev", default-features = false, git = 'https://github.com/imstar15/substrate.git', branch = 'debug-910' }
+pallet-gilt = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/imstar15/substrate.git', branch = 'debug-910' }
+pallet-grandpa = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/imstar15/substrate.git', branch = 'debug-910' }
+pallet-im-online = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/imstar15/substrate.git', branch = 'debug-910' }
+pallet-indices = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/imstar15/substrate.git', branch = 'debug-910' }
+pallet-identity = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/imstar15/substrate.git', branch = 'debug-910' }
+pallet-lottery = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/imstar15/substrate.git', branch = 'debug-910' }
+pallet-membership = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/imstar15/substrate.git', branch = 'debug-910' }
+pallet-mmr = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/imstar15/substrate.git', branch = 'debug-910' }
+pallet-multisig = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/imstar15/substrate.git', branch = 'debug-910' }
+pallet-offences = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/imstar15/substrate.git', branch = 'debug-910' }
+pallet-offences-benchmarking = { version = "4.0.0-dev", git = 'https://github.com/imstar15/substrate.git', branch = 'debug-910', default-features = false, optional = true }
+pallet-proxy = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/imstar15/substrate.git', branch = 'debug-910' }
+pallet-randomness-collective-flip = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/imstar15/substrate.git', branch = 'debug-910' }
+pallet-recovery = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/imstar15/substrate.git', branch = 'debug-910' }
+pallet-session = { version = "4.0.0-dev", features = ["historical"], git = 'https://github.com/imstar15/substrate.git', branch = 'debug-910', default-features = false }
+pallet-session-benchmarking = { version = "4.0.0-dev", git = 'https://github.com/imstar15/substrate.git', branch = 'debug-910', default-features = false, optional = true }
+pallet-staking = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/imstar15/substrate.git', branch = 'debug-910' }
+pallet-staking-reward-curve = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/imstar15/substrate.git', branch = 'debug-910' }
+pallet-scheduler = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/imstar15/substrate.git', branch = 'debug-910' }
+pallet-society = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/imstar15/substrate.git', branch = 'debug-910' }
+pallet-sudo = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/imstar15/substrate.git', branch = 'debug-910' }
+pallet-timestamp = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/imstar15/substrate.git', branch = 'debug-910' }
+pallet-tips = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/imstar15/substrate.git', branch = 'debug-910' }
+pallet-treasury = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/imstar15/substrate.git', branch = 'debug-910' }
+pallet-utility = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/imstar15/substrate.git', branch = 'debug-910' }
+pallet-transaction-payment = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/imstar15/substrate.git', branch = 'debug-910' }
+pallet-transaction-payment-rpc-runtime-api = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/imstar15/substrate.git', branch = 'debug-910' }
+pallet-transaction-storage = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/imstar15/substrate.git', branch = 'debug-910' }
+pallet-uniques = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/imstar15/substrate.git', branch = 'debug-910' }
+pallet-vesting = { version = "4.0.0-dev", default-features = false, git = 'https://github.com/imstar15/substrate.git', branch = 'debug-910' }
 
 # local dependencies
 pallet-quadratic-funding = {default-features = false, version = '3.0.0', path = '../pallets/quadratic-funding'}
 
 [build-dependencies]
-substrate-wasm-builder = { version = "5.0.0-dev", git = 'https://github.com/paritytech/substrate.git', branch= 'polkadot-v0.9.10' }
+substrate-wasm-builder = { version = "5.0.0-dev", git = 'https://github.com/imstar15/substrate.git', branch = 'debug-910' }
 
 [dev-dependencies]
-sp-io = { version = "4.0.0-dev", git = 'https://github.com/paritytech/substrate.git', branch= 'polkadot-v0.9.10' }
+sp-io = { version = "4.0.0-dev", git = 'https://github.com/imstar15/substrate.git', branch = 'debug-910' }
 
 [features]
 default = ["std"]
