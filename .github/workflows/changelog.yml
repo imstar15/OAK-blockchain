@@ -1,11 +1,30 @@
-name: Build and release
-on: 
-  pull_request:
+name: Generate CHANGELOG.md
+on:
+  pull_request_target:
     branches:
       - master
+    types:
+      - closed
 
 jobs:
   package:
     runs-on: ubuntu-latest
     steps:
       - uses: imstar15/unreleased-changelog-action@v0.0.1
+
+
+jobs:
+  if_merged:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps: 
+      - uses: actions/checkout@v2
+
+      - uses: imstar15/unreleased-changelog-action@v0.0.2
+
+      - name: Commit and push CHANGELOG.md
+        uses: EndBug/add-and-commit@v7
+        with:
+          add: CHANGELOG.md
+          message: "chore: Update CHANGELOG.md"
+          branch: master
