@@ -11,6 +11,6 @@ jobs:
   package:
     runs-on: ubuntu-latest
     steps:
-      - uses: hojland/github-changelog-action@v1.0.1
+      - uses: imstar15/github-changelog-action@v1.0.1
         with:
           next_version: "1.0.1"
