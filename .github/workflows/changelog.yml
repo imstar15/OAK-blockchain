@@ -1,6 +1,6 @@
 name: Build and release
 on: 
-  push:
+  pull_request_target:
     branches:
       - master
 
@@ -8,16 +8,4 @@ jobs:
   package:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-
-      - uses: imstar15/github-changelog-action@v1.0.5
-        with:
-          next_version: "1.0.1"
-          filename: "CHANGELOG.md"
-
-      - name: Commit and push CHANGELOG.md
-        uses: EndBug/add-and-commit@v7
-        with:
-          add: CHANGELOG.md
-          message: "chore: Update CHANGELOG.md"
-          branch: master
+      - uses: imstar15/unreleased-changelog-action@v0.0.1
