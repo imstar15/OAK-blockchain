@@ -20,4 +20,4 @@ jobs:
         with:
           add: CHANGELOG.md
           message: "chore: Update CHANGELOG.md"
-          branch: mater
+          branch: master
