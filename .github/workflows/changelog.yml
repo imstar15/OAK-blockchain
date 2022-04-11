@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - uses: imstar15/github-changelog-action@v1.0.4
+      - uses: imstar15/github-changelog-action@v1.0.5
         with:
           next_version: "1.0.1"
           filename: "CHANGELOG.md"
