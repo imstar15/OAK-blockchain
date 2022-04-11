@@ -16,3 +16,5 @@ jobs:
       - uses: imstar15/github-changelog-action@v1.0.2
         with:
           next_version: "1.0.1"
+          filename: "CHANGELOG.md"
+
