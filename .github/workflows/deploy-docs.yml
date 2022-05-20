@@ -4,11 +4,11 @@ name: Deploy rust docs
 on:
   # Triggers the workflow on push events but only for the master branch
   push:
-    branches: [ 'master' ]
+    branches: [ '*' ]
 
 env:
   AWS_REGION: us-east-1                                        # set this to your preferred AWS region, e.g. us-west-1
-  BUCKET_NAME: docs.oak.tech
+  BUCKET_NAME: staging.docs.bugmoon.test
 
 permissions:
   id-token: write # required to use OIDC authentication
