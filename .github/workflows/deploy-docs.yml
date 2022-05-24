@@ -1,3 +1,5 @@
+# Please set AWS_ROLE_TO_ASSUME, SLACK_WEBHOOK_URL in Setting > Secrets > Actions.
+
 name: Deploy rust docs
 
 # Controls when the action will run. 
@@ -53,33 +55,33 @@ jobs:
     runs-on: ubuntu-20.04
 
     steps:
-      # - name: Check out
-      # - uses: actions/checkout@v3
+      - name: Check out
+      - uses: actions/checkout@v3
 
-      # - name: Set-Up
-      #   run: |
-      #     sudo apt-get install -y cmake pkg-config libssl-dev git build-essential clang libclang-dev curl
+      - name: Set-Up
+        run: |
+          sudo apt-get install -y cmake pkg-config libssl-dev git build-essential clang libclang-dev curl
 
-      # - name: Install Rustup
-      #   run: |
-      #     curl https://sh.rustup.rs -sSf | sh -s -- -y
-      #     source ~/.cargo/env
+      - name: Install Rustup
+        run: |
+          curl https://sh.rustup.rs -sSf | sh -s -- -y
+          source ~/.cargo/env
 
       - name: Build docs
         run: |
           sh scripts/build-docs/build-docs.sh
 
-      # - name: Configure AWS credentials
-      #   uses: aws-actions/configure-aws-credentials@v1
-      #   with:
-      #     role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
-      #     role-duration-seconds: 3600 # the ttl of the session, in seconds.
-      #     aws-region: ${{ env.AWS_REGION }}
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
+          role-duration-seconds: 3600 # the ttl of the session, in seconds.
+          aws-region: ${{ env.AWS_REGION }}
 
-      # - name: Deploy files to S3
-      #   run: |
-      #     aws s3 sync --delete target/doc s3://${{ env.BUCKET_NAME }}/rust
-  
+      - name: Deploy files to S3
+        run: |
+          aws s3 sync --delete target/doc s3://${{ env.BUCKET_NAME }}/rust
+
   report-failure:
     name: Report failure status
     needs: [check-changes, build-docs]
@@ -88,10 +90,6 @@ jobs:
     runs-on: ubuntu-20.04
 
     steps:
-      - name: Report status
-        run: |
-          echo 'REPORT!!!'
-
       - name: Check workflow status
         id: check-workflow-status
         uses: martialonline/workflow-status@v2
@@ -102,10 +100,3 @@ jobs:
           status: ${{ steps.check-workflow-status.outputs.status }}
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-
-      # - name: Report to slack
-      #   uses: ravsamhq/notify-slack-action@v1
-      #   with:
-      #     status: ${{ job.status }}
-      #   env:
-      #     SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
