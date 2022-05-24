@@ -23,8 +23,9 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
       # - name: Set-Up
       #   run: sudo apt install -y cmake pkg-config libssl-dev git build-essential clang libclang-dev curl
@@ -34,17 +35,15 @@ jobs:
       #     curl https://sh.rustup.rs -sSf | sh -s -- -y
       #     source ~/.cargo/env
 
-      - name: Get specific changed files
-        id: changed-files-specific
+      - name: Get changed files
+        id: changed-files
         uses: tj-actions/changed-files@v20.2
-        with:
-          files: |
-            *.rs
 
-      - name: Run step if any of the listed files above change
-        if: steps.changed-files-specific.outputs.any_changed == 'true'
+      - name: List all changed files
         run: |
-          echo "One or more files listed above has changed."
+          for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
+            echo "$file was changed"
+          done
 
       # - name: Build doc
       #   run: |
