@@ -55,7 +55,7 @@ jobs:
     steps:
       - name: Echo
       - run: |
-        echo 'run!!!!';
+        echo 'run!!!!'
 
       # - name: Check out
       # - uses: actions/checkout@v3
