@@ -47,7 +47,7 @@ jobs:
   build-docs:
     name: Deploy docs
     needs: check-changes
-    if: needs.check-changes.outputs.any_changed == 'true'
+    # if: needs.check-changes.outputs.any_changed == 'true'
 
     # The type of runner that the job will run on
     runs-on: ubuntu-20.04
@@ -86,12 +86,15 @@ jobs:
     if: failure()
 
     runs-on: ubuntu-20.04
+
     steps:
       - name: Report status
         run: |
           echo 'REPORT!!!'
-        # uses: ravsamhq/notify-slack-action@master
-        # with:
-        #   status: ${{ job.status }}
-        # env:
-        #   SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
+
+      - name: Report to slack
+        uses: ravsamhq/notify-slack-action@v1
+        with:
+          status: ${{ job.status }}
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
