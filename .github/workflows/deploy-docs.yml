@@ -16,7 +16,7 @@ permissions:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  build:
+  check:
     name: Deploy rust docs
     # The type of runner that the job will run on
     runs-on: ubuntu-20.04
@@ -47,9 +47,11 @@ jobs:
             echo "$file was changed"
           done
 
-
-      # - name: Set-Up
-      #   run: sudo apt install -y cmake pkg-config libssl-dev git build-essential clang libclang-dev curl
+  build:
+    if: steps.changed-files-specific.outputs.any_changed == 'true'
+    steps:
+      - name: Set-Up
+        run: sudo apt install -y cmake pkg-config libssl-dev git build-essential clang libclang-dev curl
 
       # - name: Install Rustup
       #   run: |
