@@ -16,7 +16,7 @@ permissions:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  check:
+  check-changes:
     name: Check change files
     # The type of runner that the job will run on
     runs-on: ubuntu-20.04
@@ -44,19 +44,15 @@ jobs:
             echo "$file was changed"
           done
 
-  build:
+  build-docs:
     name: Deploy docs
     needs: check
-    if: needs.check.outputs.any_changed == 'true'
+    if: needs.check-changes.outputs.any_changed == 'true'
 
     # The type of runner that the job will run on
     runs-on: ubuntu-20.04
 
     steps:
-      - name: Echo
-        run: |
-          echo 'run!!!!'
-
       # - name: Check out
       # - uses: actions/checkout@v3
 
@@ -84,7 +80,7 @@ jobs:
       #   run: |
       #     aws s3 sync --delete target/doc s3://${{ env.BUCKET_NAME }}/rust
   
-  report:
+  report-failure:
     name: Report failure status
     needs: [check, build]
     if: failure()
