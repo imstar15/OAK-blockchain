@@ -37,6 +37,7 @@ jobs:
       - name: List all changed files
         run: |
           if [ !${{ steps.changed-files-specific.outputs.any_changed }} ]; then
+            echo 'exit!!!!!';
             exit 0;
           fi
 
