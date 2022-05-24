@@ -36,7 +36,7 @@ jobs:
 
       - name: List all changed files
         run: |
-          echo ${{ steps.changed-files-specific.outputs.any_changed }}
+          echo ${{ steps.changed-files.outputs.any_changed }}
 
       - name: List all changed files
         run: |
