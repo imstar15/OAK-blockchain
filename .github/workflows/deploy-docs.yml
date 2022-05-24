@@ -49,9 +49,10 @@ jobs:
           done
 
   build:
-    if: steps.changed-files-specific.outputs.any_changed
     name: Deploy docs
     needs: check
+    if: needs.check.steps.changed-files-specific.outputs.any_changed
+
     # The type of runner that the job will run on
     runs-on: ubuntu-20.04
 
