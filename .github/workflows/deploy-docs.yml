@@ -84,7 +84,7 @@ jobs:
       #   run: |
       #     aws s3 sync --delete target/doc s3://${{ env.BUCKET_NAME }}/rust
   
-  build:
+  report:
     name: Report failure status
     needs: [check, build]
     if: failure()
