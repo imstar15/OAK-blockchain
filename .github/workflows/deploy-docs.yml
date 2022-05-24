@@ -82,7 +82,7 @@ jobs:
   
   report-failure:
     name: Report failure status
-    needs: [check, build]
+    needs: [check-changes, build-docs]
     if: failure()
 
     runs-on: ubuntu-20.04
