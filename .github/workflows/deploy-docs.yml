@@ -93,8 +93,8 @@ jobs:
           echo 'REPORT!!!'
 
       - name: Check workflow status
-      - uses: martialonline/workflow-status@v2
         id: check-workflow-status
+        uses: martialonline/workflow-status@v2
 
       - name: Report to slack
       - uses: ravsamhq/notify-slack-action@v1
