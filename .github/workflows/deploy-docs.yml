@@ -63,6 +63,11 @@ jobs:
       - name: Set-Up
         run: |
           echo ${{ needs.check.outputs.any_changed }}
+
+      - name: Check changed
+        if: needs.check.outputs.any_changed == 'true'
+        run: |
+          echo ${{ needs.check.outputs.any_changed }}
         # run: sudo apt install -y cmake pkg-config libssl-dev git build-essential clang libclang-dev curl
 
       # - name: Install Rustup
