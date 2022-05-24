@@ -97,7 +97,7 @@ jobs:
         uses: martialonline/workflow-status@v2
 
       - name: Report to slack
-      - uses: ravsamhq/notify-slack-action@v1
+        uses: ravsamhq/notify-slack-action@v1
         with:
           status: ${{ steps.check-workflow-status.outputs.status }}
         env:
