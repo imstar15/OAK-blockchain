@@ -92,7 +92,16 @@ jobs:
         run: |
           echo 'REPORT!!!'
 
-      - run: echo "${{ toJson(needs) }}"
+      - name: Check workflow status
+      - uses: martialonline/workflow-status@v2
+        id: check-workflow-status
+
+      - name: Report to slack
+      - uses: ravsamhq/notify-slack-action@v1
+        with:
+          status: ${{ steps.check-workflow-status.outputs.status }}
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
 
       # - name: Report to slack
       #   uses: ravsamhq/notify-slack-action@v1
