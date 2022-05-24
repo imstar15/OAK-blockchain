@@ -54,7 +54,7 @@ jobs:
   build:
     name: Deploy docs
     needs: check
-    # if: needs.check.outputs.any_changed
+    if: needs.check.outputs.any_changed == 'true'
 
     # The type of runner that the job will run on
     runs-on: ubuntu-20.04
