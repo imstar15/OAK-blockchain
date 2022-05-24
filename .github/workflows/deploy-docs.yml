@@ -93,7 +93,7 @@ jobs:
     steps:
       - name: Report status
         run: |
-          echo 'REPORT!!!
+          echo 'REPORT!!!'
         # uses: ravsamhq/notify-slack-action@master
         # with:
         #   status: ${{ job.status }}
