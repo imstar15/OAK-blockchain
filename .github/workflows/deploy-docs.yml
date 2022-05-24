@@ -56,7 +56,7 @@ jobs:
 
     steps:
       - name: Check out
-      - uses: actions/checkout@v3
+        uses: actions/checkout@v3
 
       - name: Set-Up
         run: |
@@ -69,7 +69,7 @@ jobs:
 
       - name: Build docs
         run: |
-          sh scripts/build-docs/build-docs.sh
+          sh ./.maintain/build-docs/build-docs.sh
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
