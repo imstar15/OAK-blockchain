@@ -21,6 +21,8 @@ jobs:
     # The type of runner that the job will run on
     runs-on: ubuntu-20.04
 
+    any_changed: ${{ steps.changed-files-specific.outputs.any_changed }}
+
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - uses: actions/checkout@v3
@@ -35,13 +37,6 @@ jobs:
             pallets/**/lib.rs
 
       - name: List all changed files
-        run: |
-          if [ !${{ steps.changed-files-specific.outputs.any_changed }} ]; then
-            echo 'exit!!!!!';
-            exit 0;
-          fi
-
-      - name: List all changed files
         if: steps.changed-files-specific.outputs.any_changed == 'true'
         run: |
           for file in ${{ steps.changed-files-specific.outputs.all_changed_files }}; do
@@ -51,7 +46,7 @@ jobs:
   build:
     name: Deploy docs
     needs: check
-    if: needs.check.steps.changed-files-specific.outputs.any_changed
+    if: needs.check.outputs.any_changed
 
     # The type of runner that the job will run on
     runs-on: ubuntu-20.04
