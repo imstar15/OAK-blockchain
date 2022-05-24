@@ -38,13 +38,6 @@ jobs:
             pallets/**/lib.rs
 
       - name: List all changed files
-        run: |
-          if [ !${{ steps.changed-files-specific.outputs.any_changed }} ]; then
-            echo 'exit!!!!!';
-            exit 0;
-          fi
-
-      - name: List all changed files
         if: steps.changed-files-specific.outputs.any_changed == 'true'
         run: |
           for file in ${{ steps.changed-files-specific.outputs.all_changed_files }}; do
@@ -59,25 +52,18 @@ jobs:
     # The type of runner that the job will run on
     runs-on: ubuntu-20.04
 
-    steps:
       - name: Set-Up
         run: |
-          echo ${{ needs.check.outputs.any_changed }}
+          sudo apt-get install -y cmake pkg-config libssl-dev git build-essential clang libclang-dev curl
 
-      - name: Check changed
-        if: needs.check.outputs.any_changed == 'true'
+      - name: Install Rustup
         run: |
-          echo ${{ needs.check.outputs.any_changed }}
-        # run: sudo apt install -y cmake pkg-config libssl-dev git build-essential clang libclang-dev curl
+          curl https://sh.rustup.rs -sSf | sh -s -- -y
+          source ~/.cargo/env
 
-      # - name: Install Rustup
-      #   run: |
-      #     curl https://sh.rustup.rs -sSf | sh -s -- -y
-      #     source ~/.cargo/env
-
-      # - name: Build doc
-      #   run: |
-      #     sh scripts/build-docs/build-docs.sh
+      - name: Build doc
+        run: |
+          sh scripts/build-docs/build-docs.sh
 
       # - name: Configure AWS credentials
       #   uses: aws-actions/configure-aws-credentials@v1
