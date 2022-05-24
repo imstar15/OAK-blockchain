@@ -36,7 +36,7 @@ jobs:
 
       - name: List all changed files
         run: |
-          if [steps.changed-files-specific.outputs.any_changed == 'true']; then
+          if [${{steps.changed-files-specific.outputs.any_changed}} == 'true']; then
             exit 0;
           fi
 
