@@ -49,7 +49,7 @@ jobs:
           done
 
   build:
-    if: check.steps.changed-files-specific.outputs.any_changed
+    if: steps.changed-files-specific.outputs.any_changed
     name: Deploy docs
     needs: check
     # The type of runner that the job will run on
