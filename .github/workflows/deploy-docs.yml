@@ -60,16 +60,14 @@ jobs:
       - name: Set-Up
         run: sudo apt install -y cmake pkg-config libssl-dev git build-essential clang libclang-dev curl
 
-      # - name: Install Rustup
-      #   run: |
-      #     curl https://sh.rustup.rs -sSf | sh -s -- -y
-      #     source ~/.cargo/env
+      - name: Install Rustup
+        run: |
+          curl https://sh.rustup.rs -sSf | sh -s -- -y
+          source ~/.cargo/env
 
-      
-
-      # - name: Build doc
-      #   run: |
-      #     sh scripts/build-docs/build-docs.sh
+      - name: Build doc
+        run: |
+          sh scripts/build-docs/build-docs.sh
 
       # - name: Configure AWS credentials
       #   uses: aws-actions/configure-aws-credentials@v1
