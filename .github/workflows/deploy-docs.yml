@@ -92,7 +92,7 @@ jobs:
         run: |
           echo 'REPORT!!!'
 
-      - run: echo "${{ toJson(github) }}"
+      - run: echo "${{ toJson(needs) }}"
 
       # - name: Report to slack
       #   uses: ravsamhq/notify-slack-action@v1
