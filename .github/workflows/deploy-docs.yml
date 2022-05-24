@@ -28,7 +28,7 @@ jobs:
           fetch-depth: 0
 
       - name: Get changed files
-        id: changed-files
+        id: changed-files-specific
         uses: tj-actions/changed-files@v20.2
         with:
           files: |
@@ -36,11 +36,13 @@ jobs:
 
       - name: List all changed files
         run: |
-          echo ${{ steps.changed-files.outputs.any_changed }}
+          if [${{ steps.changed-files-specific.outputs.any_changed }} == 'true']; then
+            exit 0;
+          fi
 
       - name: List all changed files
         run: |
-          for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
+          for file in ${{ steps.changed-files-specific.outputs.all_changed_files }}; do
             echo "$file was changed"
           done
 
