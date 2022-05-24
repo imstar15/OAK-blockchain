@@ -4,11 +4,11 @@ name: Deploy rust docs
 on:
   # Triggers the workflow on push events but only for the master branch
   push:
-    branches: [ 'master' ]
+    branches: [ '*' ]
 
 env:
   AWS_REGION: us-east-1                                        # set this to your preferred AWS region, e.g. us-west-1
-  BUCKET_NAME: docs.oak.tech
+  BUCKET_NAME: staging.docs.bugmoon.test
 
 permissions:
   id-token: write # required to use OIDC authentication
@@ -33,18 +33,29 @@ jobs:
         run: |
           curl https://sh.rustup.rs -sSf | sh -s -- -y
           source ~/.cargo/env
-
-      - name: Build doc
-        run: |
-          sh scripts/build-docs/build-docs.sh
-
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v1
+      - name: Get specific changed files
+        id: changed-files-specific
+        uses: tj-actions/changed-files@v20.2
         with:
-          role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
-          role-duration-seconds: 3600 # the ttl of the session, in seconds.
-          aws-region: ${{ env.AWS_REGION }}
+          files: |
+            *.rs
 
-      - name: Deploy files to S3
+      - name: Run step if any of the listed files above change
+        if: steps.changed-files-specific.outputs.any_changed == 'true'
         run: |
-          aws s3 sync --delete target/doc s3://${{ env.BUCKET_NAME }}/rust
+          echo "One or more files listed above has changed."
+
+      # - name: Build doc
+      #   run: |
+      #     sh scripts/build-docs/build-docs.sh
+
+      # - name: Configure AWS credentials
+      #   uses: aws-actions/configure-aws-credentials@v1
+      #   with:
+      #     role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
+      #     role-duration-seconds: 3600 # the ttl of the session, in seconds.
+      #     aws-region: ${{ env.AWS_REGION }}
+
+      # - name: Deploy files to S3
+      #   run: |
+      #     aws s3 sync --delete target/doc s3://${{ env.BUCKET_NAME }}/rust
