@@ -54,23 +54,25 @@ jobs:
   build:
     name: Deploy docs
     needs: check
-    if: false
+    # if: needs.check.outputs.any_changed
 
     # The type of runner that the job will run on
     runs-on: ubuntu-20.04
 
     steps:
       - name: Set-Up
-        run: sudo apt install -y cmake pkg-config libssl-dev git build-essential clang libclang-dev curl
-
-      - name: Install Rustup
         run: |
-          curl https://sh.rustup.rs -sSf | sh -s -- -y
-          source ~/.cargo/env
+          echo ${{ needs.check.outputs.any_changed }}
+        # run: sudo apt install -y cmake pkg-config libssl-dev git build-essential clang libclang-dev curl
 
-      - name: Build doc
-        run: |
-          sh scripts/build-docs/build-docs.sh
+      # - name: Install Rustup
+      #   run: |
+      #     curl https://sh.rustup.rs -sSf | sh -s -- -y
+      #     source ~/.cargo/env
+
+      # - name: Build doc
+      #   run: |
+      #     sh scripts/build-docs/build-docs.sh
 
       # - name: Configure AWS credentials
       #   uses: aws-actions/configure-aws-credentials@v1
