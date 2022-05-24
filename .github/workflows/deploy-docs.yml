@@ -69,9 +69,9 @@ jobs:
       #     curl https://sh.rustup.rs -sSf | sh -s -- -y
       #     source ~/.cargo/env
 
-      # - name: Build docs
-      #   run: |
-      #     sh scripts/build-docs/build-docs.sh
+      - name: Build docs
+        run: |
+          sh scripts/build-docs/build-docs.sh
 
       # - name: Configure AWS credentials
       #   uses: aws-actions/configure-aws-credentials@v1
