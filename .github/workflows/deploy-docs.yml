@@ -46,7 +46,7 @@ jobs:
 
   build-docs:
     name: Deploy docs
-    needs: check
+    needs: check-changes
     if: needs.check-changes.outputs.any_changed == 'true'
 
     # The type of runner that the job will run on
