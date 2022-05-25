@@ -49,6 +49,7 @@ jobs:
           source ~/.cargo/env
           rustup update stable
           rustup component add llvm-tools-preview
+          cargo +nightly install --git https://github.com/alexcrichton/wasm-gc
           cargo install grcov
 
       - name: Test coverage
