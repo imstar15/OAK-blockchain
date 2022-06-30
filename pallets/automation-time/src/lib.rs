@@ -502,7 +502,7 @@ pub mod pallet {
 				return Ok(())
 			}
 
-			let remainder = scheduled_time % 3600;
+			let remainder = scheduled_time.checked_rem(3600).ok_or(ArithmeticError::Overflow)?;
 			if remainder != 0 {
 				Err(<Error<T>>::InvalidTime)?;
 			}
@@ -511,8 +511,9 @@ pub mod pallet {
 			if scheduled_time <= current_time_slot {
 				Err(<Error<T>>::PastTime)?;
 			}
-
-			if scheduled_time > current_time_slot + T::MaxScheduleSeconds::get() {
+			
+			let max_schdule_time = current_time_slot.checked_add(T::MaxScheduleSeconds::get()).ok_or(ArithmeticError::Overflow)?;
+			if scheduled_time > max_schdule_time {
 				Err(Error::<T>::TimeTooFarOut)?;
 			}
 
