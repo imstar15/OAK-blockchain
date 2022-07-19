@@ -17,27 +17,39 @@ concurrency:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  linting:
-    name: "Check rustfmt"
+  # linting:
+  #   name: "Check rustfmt"
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #   - name: Checkout
+  #     uses: actions/checkout@v2
+  #   - name: Setup Rust
+  #     run: rustup show
+  #   - name: rustfmt
+  #     run: cargo fmt -- --check
+  # build:
+  #   name: "Build release"
+  #   runs-on: self-hosted
+  #   steps:
+  #   - name: Checkout
+  #     uses: actions/checkout@v2
+  #   - name: Setup Rust
+  #     run: rustup show
+  #   - name: Build
+  #     run: |
+  #       cargo build --release --all --features all-nodes
+  #   - name: Test
+  #     run: |
+  #       cargo test --release --all --features all-nodes
+  dependencies-pr-status:
+    name: "Dependencies PR status"
     runs-on: ubuntu-latest
+    if: contains(github.event.pull_request.title, 'dependenc') && ( github.event.action == 'opened' || github.event.action == 'reopened' || github.event.pull_request.merged == true)
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-    - name: Setup Rust
-      run: rustup show
-    - name: rustfmt
-      run: cargo fmt -- --check
-  build:
-    name: "Build release"
-    runs-on: self-hosted
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-    - name: Setup Rust
-      run: rustup show
-    - name: Build
-      run: |
-        cargo build --release --all --features all-nodes
-    - name: Test
-      run: |
-        cargo test --release --all --features all-nodes
+      - name: Report to slack
+        uses: ravsamhq/notify-slack-action@v1
+        with:
+          status: ${{ job.status }}
+          message_format: '${{ github.event.pull_request.title }} ${{ github.event.action }}'
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
