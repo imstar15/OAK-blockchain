@@ -54,8 +54,8 @@ jobs:
         uses: ravsamhq/notify-slack-action@v1
         with:
           status: ${{ job.status }}
-          notification_title: '${{ github.event.pull_request.title }} merged'
-          message_format: '${{ github.event.pull_request.title }} merged'
+          notification_title: 'Dependencies update PR merged'
+          message_format: ${{ github.event.pull_request.title }}
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
       - name: Report PR opened to slack
@@ -63,7 +63,7 @@ jobs:
         uses: ravsamhq/notify-slack-action@v1
         with:
           status: ${{ job.status }}
-          notification_title: 'Dependencices update PR ${{ github.event.action }}'
+          notification_title: 'Dependencies update PR ${{ github.event.action }}'
           message_format: ${{ github.event.pull_request.title }}
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
