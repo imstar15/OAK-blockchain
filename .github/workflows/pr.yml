@@ -1,6 +1,7 @@
 on:
   pull_request:
-    branches:    
+    types: [opened, reopened, closed]
+    branches:
       - master
 jobs:
   print222:
@@ -8,3 +9,9 @@ jobs:
     steps:
       - name: Print the input tag to STDOUT
         run: echo HELLO
+      # - name: Report to slack
+      #   uses: ravsamhq/notify-slack-action@v1
+      #   with:
+      #     status: ${{ steps.check-workflow-status.outputs.status }}
+      #   env:
+      #     SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
