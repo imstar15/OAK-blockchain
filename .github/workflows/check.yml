@@ -63,8 +63,8 @@ jobs:
         uses: ravsamhq/notify-slack-action@v1
         with:
           status: ${{ job.status }}
-          notification_title: '${{ github.event.pull_request.title }} ${{ github.event.action }}'
-          message_format: '${{ github.event.pull_request.title }} ${{ github.event.action }}'
+          notification_title: 'Dependencices update PR ${{ github.event.action }}'
+          message_format: ${{ github.event.pull_request.title }}
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
 
