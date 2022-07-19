@@ -5,4 +5,4 @@ on:
 jobs:
   steps:
     - run: |
-      echo "Run when PR to master!"
+      echo Run when PR to master!
