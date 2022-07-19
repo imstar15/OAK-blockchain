@@ -3,9 +3,6 @@ on:
     branches:    
       - master
 jobs:
-  steps:
-    - run: echo "The head of this PR starts with 'releases/'"
-jobs:
   print222:
     steps:
       - name: Print the input tag to STDOUT
