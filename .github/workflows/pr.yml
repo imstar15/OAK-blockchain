@@ -13,6 +13,6 @@ jobs:
         uses: ravsamhq/notify-slack-action@v1
         with:
           status: ${{ job.status }}
-          message_format: '${{ github.event.pull_request.title }} ${{ github.event.pull_request.type }'
+          message_format: '${{ github.event.pull_request.title }} ${{ github.event.pull_request.type }}'
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
