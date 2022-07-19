@@ -55,7 +55,7 @@ jobs:
         with:
           status: ${{ job.status }}
           notification_title: 'Dependencies update PR merged'
-          message_format: ${{ github.event.pull_request.title }}
+          message_format: '${{ github.event.pull_request.title }} ${{ github.event.pull_request.html_url }}'
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
       - name: Report PR opened to slack
@@ -64,7 +64,7 @@ jobs:
         with:
           status: ${{ job.status }}
           notification_title: 'Dependencies update PR ${{ github.event.action }}'
-          message_format: ${{ github.event.pull_request.title }}
+          message_format: '${{ github.event.pull_request.title }} ${{ github.event.pull_request.html_url }}'
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
 
