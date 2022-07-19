@@ -2,6 +2,6 @@ on:
   pull_request:
     branches:    
       - master
-  jobs:
-    steps:
-      echo "Run when PR to master!"
+jobs:
+  steps:
+    echo "Run when PR to master!"
