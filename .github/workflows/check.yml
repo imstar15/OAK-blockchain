@@ -18,19 +18,21 @@ concurrency:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # linting:
-  #   name: "Check rustfmt"
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #   - name: Checkout
-  #     uses: actions/checkout@v2
-  #   - name: Setup Rust
-  #     run: rustup show
-  #   - name: rustfmt
-  #     run: cargo fmt -- --check
+  linting:
+    name: "Check rustfmt"
+    runs-on: ubuntu-latest
+    if: github.event.action != 'close'
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Setup Rust
+      run: rustup show
+    - name: rustfmt
+      run: cargo fmt -- --check
   # build:
   #   name: "Build release"
   #   runs-on: self-hosted
+  #   if: github.event.action != 'close'
   #   steps:
   #   - name: Checkout
   #     uses: actions/checkout@v2
