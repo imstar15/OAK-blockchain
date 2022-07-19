@@ -45,7 +45,7 @@ jobs:
   dependencies-pr-status:
     name: "Dependencies PR status"
     runs-on: ubuntu-latest
-    if: contains(github.event.pull_request.title, 'dependenc') && ( github.event.action == 'opened' || github.event.action == 'reopened' || github.event.pull_request.merged == true)
+    if: (contains(github.event.pull_request.title, 'dependenc') || contains(github.event.pull_request.title, 'Dependenc')) && ( github.event.action == 'opened' || github.event.action == 'reopened' || github.event.pull_request.merged == true)
     steps:
       - name: Report PR merged to slack
         if: ${{ github.event.pull_request.merged == true }}
