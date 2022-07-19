@@ -4,5 +4,4 @@ on:
       - master
 jobs:
   steps:
-    - run: |
-      echo Run when PR to master!
+    - run: echo "The head of this PR starts with 'releases/'"
