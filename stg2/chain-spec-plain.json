@@ -10,7 +10,7 @@
     "tokenDecimals": 10,
     "tokenSymbol": "TUR"
   },
-  "relay_chain": "rococo-local",
+  "relay_chain": "westend_moonbase_relay_testnet",
   "para_id": 2114,
   "codeSubstitutes": {},
   "genesis": {
