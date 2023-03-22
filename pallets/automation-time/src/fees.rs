@@ -94,12 +94,15 @@ where
 
 	/// Withdraw the fee.
 	fn withdraw_fee(&self) -> Result<(), DispatchError> {
+		
 		let fee = self.execution_fee.saturating_add(self.xcmp_fee);
+		log::error!("withdraw_fee, self.execution_fee: {:?}, self.xcmp_fee: {:?}, fee: {:?}", self.execution_fee, self.xcmp_fee, fee);
 
 		if fee.is_zero() {
 			return Ok(())
 		}
 
+		log::error!("::MultiCurrency::withdraw, self.currency_id: {:?}, self.owner: {:?}, fee: {:?}", self.currency_id, self.owner, fee);
 		match T::MultiCurrency::withdraw(self.currency_id, &self.owner, fee) {
 			Ok(_) => {
 				TR::take_revenue(MultiAsset {
