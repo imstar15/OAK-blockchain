@@ -68,6 +68,8 @@ use frame_system::{
 pub use sp_runtime::{Perbill, Permill, Perquintill};
 
 #[cfg(any(feature = "std", test))]
+pub use pallet_sudo::Call as SudoCall;
+#[cfg(any(feature = "std", test))]
 pub use sp_runtime::BuildStorage;
 
 // Cumulus Imports
@@ -684,6 +686,11 @@ impl pallet_membership::Config<pallet_membership::Instance1> for Runtime {
 	type WeightInfo = pallet_membership::weights::SubstrateWeight<Runtime>;
 }
 
+impl pallet_sudo::Config for Runtime {
+	type Event = Event;
+	type Call = Call;
+}
+
 parameter_types! {
 	pub const ProposalBond: Permill = Permill::from_percent(5);
 	pub const ProposalBondMinimum: Balance = 1 * DOLLAR;
@@ -1014,6 +1021,7 @@ construct_runtime!(
 		UnknownTokens: orml_unknown_tokens::{Pallet, Storage, Event} = 45,
 
 		// Support pallets.
+		Sudo: pallet_sudo::{Pallet, Call, Storage, Event<T>, Config<T>} = 50,
 		Treasury: pallet_treasury::{Pallet, Call, Storage, Config, Event<T>} = 51,
 		Council: pallet_collective::<Instance1>::{Pallet, Call, Storage, Event<T>, Origin<T>, Config<T>} = 52,
 		TechnicalCommittee: pallet_collective::<Instance2>::{Pallet, Call, Storage, Event<T>, Origin<T>, Config<T>} = 53,

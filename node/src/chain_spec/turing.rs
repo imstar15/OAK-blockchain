@@ -13,7 +13,7 @@ use common_runtime::constants::currency::{DOLLAR, TOKEN_DECIMALS};
 use pallet_xcmp_handler::XcmFlow;
 use primitives::{assets::CustomMetadata, AccountId, AuraId, Balance, TokenId};
 use turing_runtime::{
-	AssetRegistryConfig, CouncilConfig, PolkadotXcmConfig, TechnicalMembershipConfig, ValveConfig,
+	AssetRegistryConfig, CouncilConfig, PolkadotXcmConfig, SudoConfig, TechnicalMembershipConfig, ValveConfig,
 	VestingConfig, XcmpHandlerConfig,
 };
 use xcm::{prelude::*, VersionedMultiLocation, VersionedMultiLocation::V3};
@@ -228,6 +228,7 @@ pub fn turing_live() -> Result<DummyChainSpec, String> {
 const NUM_SELECTED_CANDIDATES: u32 = 6;
 fn testnet_genesis(
 	invulnerables: Vec<(AccountId, AuraId)>,
+	root_key: AccountId,
 	endowed_accounts: Vec<(AccountId, Balance)>,
 	para_id: ParaId,
 	pallet_gates_closed: Vec<Vec<u8>>,
@@ -313,6 +314,7 @@ fn testnet_genesis(
 		},
 		parachain_system: Default::default(),
 		polkadot_xcm: PolkadotXcmConfig { safe_xcm_version: Some(SAFE_XCM_VERSION) },
+		sudo: SudoConfig { key: Some(root_key) },
 		treasury: Default::default(),
 		valve: ValveConfig { start_with_valve_closed: false, closed_gates: pallet_gates_closed },
 		vesting: VestingConfig { vesting_schedule },
