@@ -25,6 +25,7 @@ pallet-treasury = { git = "https://github.com/imstar15/substrate", default-featu
 
 ## Polkdadot deps
 polkadot-primitives = { git = "https://github.com/imstar15/polkadot", branch = "release-v0.9.38", default-features = false }
+xcm = { git = "https://github.com/imstar15/polkadot", branch = "release-v0.9.38", default-features = false }
 
 ## ORML
 orml-traits = { git = "https://github.com/imstar15/open-runtime-module-library", default-features = false, branch = "polkadot-v0.9.38" }

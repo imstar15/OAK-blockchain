@@ -16,8 +16,9 @@
 // limitations under the License.
 #![cfg_attr(not(feature = "std"), no_std)]
 use frame_support::traits::Get;
-use orml_traits::currency::MutationHooks;
+use orml_traits::{currency::MutationHooks, location::{RelativeReserveProvider, Reserve}};
 use sp_std::marker::PhantomData;
+use xcm::latest::{MultiAsset, MultiLocation};
 
 pub mod constants;
 pub mod fees;
@@ -37,4 +38,26 @@ where
 	type PostTransfer = ();
 	type OnNewTokenAccount = ();
 	type OnKilledTokenAccount = ();
+}
+
+/// This struct offers uses RelativeReserveProvider to output relative views of multilocations
+/// However, additionally accepts a MultiLocation that aims at representing the chain part
+/// (parent: 1, Parachain(paraId)) of the absolute representation of our chain.
+/// If a token reserve matches against this absolute view, we return  Some(MultiLocation::here())
+/// This helps users by preventing errors when they try to transfer a token through xtokens
+/// to our chain (either inserting the relative or the absolute value).
+pub struct AbsoluteAndRelativeReserve<AbsoluteMultiLocation>(PhantomData<AbsoluteMultiLocation>);
+impl<AbsoluteMultiLocation> Reserve for AbsoluteAndRelativeReserve<AbsoluteMultiLocation>
+where
+	AbsoluteMultiLocation: Get<MultiLocation>,
+{
+	fn reserve(asset: &MultiAsset) -> Option<MultiLocation> {
+		RelativeReserveProvider::reserve(asset).map(|relative_reserve| {
+			if relative_reserve == AbsoluteMultiLocation::get() {
+				MultiLocation::here()
+			} else {
+				relative_reserve
+			}
+		})
+	}
 }

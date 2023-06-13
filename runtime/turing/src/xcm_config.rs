@@ -38,6 +38,8 @@ use orml_xcm_support::{
 	DepositToAlternative, IsNativeConcrete, MultiCurrencyAdapter, MultiNativeAsset,
 };
 
+use common_runtime::AbsoluteAndRelativeReserve;
+
 parameter_types! {
 	pub const RelayLocation: MultiLocation = MultiLocation::parent();
 	pub const RelayNetwork: NetworkId = NetworkId::Kusama;
@@ -360,7 +362,7 @@ impl orml_xtokens::Config for Runtime {
 	type BaseXcmWeight = BaseXcmWeight;
 	type UniversalLocation = UniversalLocation;
 	type MaxAssetsForTransfer = MaxAssetsForTransfer;
-	type ReserveProvider = AbsoluteReserveProvider;
+	type ReserveProvider = AbsoluteAndRelativeReserve<SelfLocation>;
 }
 
 impl orml_unknown_tokens::Config for Runtime {
