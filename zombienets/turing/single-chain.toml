@@ -20,5 +20,6 @@ chain = "turing-dev"
   [parachains.collator]
   name = "collator01"
   command = "./target/release/oak-collator"
+  args = ["-lxcm=trace --state-pruning archive"]
   ws_port = 9946
   rpc_port = 8855
